@@ -1,0 +1,4 @@
+.headerBg{
+    background-image: image('Header.png') !important;
+    width: 500px !important;
+}
