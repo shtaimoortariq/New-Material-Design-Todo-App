@@ -1,4 +1,5 @@
-.headerBg{
-    background-image: image('Header.png') !important;
-    width: 500px !important;
+.bodyBg{
+    background-color: #1F244C !important;
+    color: #A6AFF1 !important;
+
 }
