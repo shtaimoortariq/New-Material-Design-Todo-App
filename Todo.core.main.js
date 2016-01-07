@@ -8,13 +8,11 @@ var app = angular.module("todoCoreModule", ['ngMaterial']);
 app.controller("todoCoreController", function ($timeout, $mdSidenav, $log) {
 
 
-
     this.toggleLeft = buildDelayedToggler('left');
     this.toggleRight = buildToggler('right');
     this.isOpenRight = function () {
         return $mdSidenav('left').isOpen();
     };
-
 
 
     function debounce(func, wait, context) {
@@ -49,8 +47,6 @@ app.controller("todoCoreController", function ($timeout, $mdSidenav, $log) {
                 });
         }
     }
-
-
 
 
 });
