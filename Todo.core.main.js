@@ -9,11 +9,9 @@ app.controller("todoCoreController", function ($timeout, $mdSidenav, $log) {
 
 
     this.toggleLeft = buildDelayedToggler('left');
-    this.toggleRight = buildToggler('right');
-    this.isOpenRight = function () {
+    this.isOpenLeft = function () {
         return $mdSidenav('left').isOpen();
     };
-
 
     function debounce(func, wait, context) {
         var timer;
@@ -38,15 +36,6 @@ app.controller("todoCoreController", function ($timeout, $mdSidenav, $log) {
         }, 200);
     }
 
-    function buildToggler(navID) {
-        return function () {
-            $mdSidenav(navID)
-                .toggle()
-                .then(function () {
-                    $log.debug("toggle " + navID + " is done");
-                });
-        }
-    }
 
 
 });
@@ -61,11 +50,3 @@ app.controller('LeftCtrl', function ($timeout, $mdSidenav, $log) {
     };
 });
 
-app.controller('RightCtrl', function ($timeout, $mdSidenav, $log) {
-    this.close = function () {
-        $mdSidenav('right').close()
-            .then(function () {
-                $log.debug("close RIGHT is done");
-            });
-    };
-});
