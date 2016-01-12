@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:background-color="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -25,25 +25,24 @@
 
     <md-content flex layout-padding>
         <div layout="column" layout-fill layout-align="top center">
-            
+
 
             <ng-md-icon icon="menu" style="fill: blue" size="40" ng-click="todoCore.toggleLeft()"
                         ng-hide="todoCore.isOpenLeft()"></ng-md-icon>
 
-
         </div>
     </md-content>
+</div>
 
-
-    <md-sidenav md-component-id="left">
+    <md-sidenav md-component-id="left" class="bgOfLeftPannel">
 
         <div ng-controller="LeftCtrl as leftPannel">
-            <div class="backgroundImg" layout-align="center center">
-
+            <div class="backgroundImg" layout-align="start end" layout="row">
+                <span>Taimoor</span>
 
             </div>
 
-            <div layout="column" layout-align="start start" class="bgOfLeftPannel">
+            <div layout="column" layout-align="start start" >
 
                 <md-button ng-click="leftPannel.close()" class="md-primary">
                     Close Sidenav left
@@ -59,7 +58,7 @@
     </md-sidenav>
 
 
-</div>
+
 
 
 </body>
