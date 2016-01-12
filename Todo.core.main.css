@@ -1,5 +1,11 @@
-.bodyBg{
-    background-color: #1F244C !important;
-    color: #A6AFF1 !important;
+.backgroundImg{
+ background-image: url("./assignment2Header.png");
+    width: 320px;
+    height: 159px;
+}
+
+.bgOfLeftPannel{
+
+
 
 }

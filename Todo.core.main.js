@@ -3,7 +3,7 @@
  */
 
 
-var app = angular.module("todoCoreModule", ['ngMaterial']);
+var app = angular.module("todoCoreModule", ['ngMaterial', 'ngMdIcons']);
 
 app.controller("todoCoreController", function ($timeout, $mdSidenav, $log) {
 

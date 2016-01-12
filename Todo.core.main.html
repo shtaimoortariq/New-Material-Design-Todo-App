@@ -7,12 +7,13 @@
 
     <link rel="stylesheet" type="text/css" href="./Todo.core.main.css"/>
     <link rel="stylesheet" type="text/css" href="./node_modules/angular-material/angular-material.css"/>
-
+    <link rel="stylesheet" type="text/css" href="./node_modules/angular-material-icons/angular-material-icons.css"/>
 
     <script src="./node_modules/angular/angular.js"></script>
     <script src="./node_modules/angular-animate/angular-animate.js"></script>
     <script src="./node_modules/angular-aria/angular-aria.js"></script>
     <script src="./node_modules/angular-material/angular-material.js"></script>
+    <script src="./node_modules/angular-material-icons/angular-material-icons.js"></script>
 
     <script src="Todo.core.main.js"></script>
 
@@ -22,45 +23,42 @@
 <div ng-controller="todoCoreController as todoCore">
 
 
-    <section layout="row" flex>
+    <md-content flex layout-padding>
+        <div layout="column" layout-fill layout-align="top center">
+            
 
-        <md-content flex layout-padding>
-            <div layout="column" layout-fill layout-align="top center">
+            <ng-md-icon icon="menu" style="fill: blue" size="40" ng-click="todoCore.toggleLeft()"
+                        ng-hide="todoCore.isOpenLeft()"></ng-md-icon>
 
-                <div>
-                    <md-button ng-click="todoCore.toggleLeft()" ng-hide="todoCore.isOpenLeft()"
-                               class="md-primary">
-                        Toggle left
-                    </md-button>
-                </div>
+
+        </div>
+    </md-content>
+
+
+    <md-sidenav md-component-id="left">
+
+        <div ng-controller="LeftCtrl as leftPannel">
+            <div class="backgroundImg" layout-align="center center">
+
 
             </div>
-            <div flex></div>
-        </md-content>
 
+            <div layout="column" layout-align="start start" class="bgOfLeftPannel">
 
-
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" flex-gt-sm="50">
-            <md-toolbar class="md-theme-light">
-                <h1 class="md-toolbar-tools">Sidenav left</h1>
-            </md-toolbar>
-            <md-content ng-controller="LeftCtrl as leftPannel" layout-padding>
-                <form>
-                    <md-input-container>
-                        <label for="testInput">Test input</label>
-                        <input type="text" id="testInput1"
-                               ng-model="data" md-autofocus>
-                    </md-input-container>
-                </form>
                 <md-button ng-click="leftPannel.close()" class="md-primary">
-                    Close Sidenav Right
+                    Close Sidenav left
                 </md-button>
-            </md-content>
-        </md-sidenav>
 
 
+                <md-button ng-click="leftPannel.close()" class="md-primary">
+                    Logout
+                </md-button>
 
-    </section>
+            </div>
+        </div>
+    </md-sidenav>
+
+
 </div>
 
 
