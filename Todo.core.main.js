@@ -9,9 +9,7 @@ app.controller("todoCoreController", function ($timeout, $mdSidenav, $log) {
 
 
     this.toggleLeft = buildDelayedToggler('left');
-    this.isOpenLeft = function () {
-        return $mdSidenav('left').isOpen();
-    };
+
 
     function debounce(func, wait, context) {
         var timer;

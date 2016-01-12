@@ -26,39 +26,41 @@
     <md-content flex layout-padding>
         <div layout="column" layout-fill layout-align="top center">
 
-
-            <ng-md-icon icon="menu" style="fill: blue" size="40" ng-click="todoCore.toggleLeft()"
-                        ng-hide="todoCore.isOpenLeft()"></ng-md-icon>
-
+            <md-button class="md-icon-button md-primary" aria-label="Settings" ng-click="todoCore.toggleLeft()">
+                <ng-md-icon icon="menu" style="fill: blue" size="30"></ng-md-icon>
+            </md-button>
         </div>
     </md-content>
 </div>
 
-    <md-sidenav md-component-id="left" class="bgOfLeftPannel">
+<md-sidenav md-component-id="left" class="bgOfLeftPannel">
 
-        <div ng-controller="LeftCtrl as leftPannel">
-            <div class="backgroundImg" layout-align="start end" layout="row">
-                <span>Taimoor</span>
-
-            </div>
-
-            <div layout="column" layout-align="start start" >
-
-                <md-button ng-click="leftPannel.close()" class="md-primary">
-                    Close Sidenav left
-                </md-button>
+    <div ng-controller="LeftCtrl as leftPannel">
 
 
-                <md-button ng-click="leftPannel.close()" class="md-primary">
-                    Logout
-                </md-button>
-
+        <div class="backgroundImg" layout-align="start end" layout="row">
+            <div layout-margin>
+                <img src="user-icon-set-14.jpg" class="faceRadius"/>
+                <span> Taimoor </span>
             </div>
         </div>
-    </md-sidenav>
+
+        <div layout="column" layout-align="start start">
+
+            <md-button ng-click="leftPannel.close()" class="md-primary">
+                Close Sidenav left
+            </md-button>
 
 
+            <md-button ng-click="leftPannel.close()" class="md-primary">
+                Logout
+            </md-button>
 
+        </div>
+
+
+    </div>
+</md-sidenav>
 
 
 </body>

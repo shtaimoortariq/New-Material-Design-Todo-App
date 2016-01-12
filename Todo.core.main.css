@@ -6,6 +6,10 @@
 
 .bgOfLeftPannel{
 
-    background-color: #1F244C
+    background-color: #1F244C;
 
+}
+.faceRadius{
+
+border-radius: 100px;
 }
