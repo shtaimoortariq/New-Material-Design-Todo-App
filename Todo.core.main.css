@@ -1,15 +1,31 @@
-.backgroundImg{
- background-image: url("./assignment2Header.png");
+.backgroundImg {
+    background-image: url("./assignment2Header.png");
     width: 320px;
     height: 159px;
 }
 
-.bgOfLeftPannel{
-
+.bgOfLeftPannel {
     background-color: #1F244C;
+}
+
+.faceRadius {
+    border-radius: 100px;
+}
+
+.mainContent {
+    background-image: url("./bg.png");
+    background-size: 100% 100%;
 
 }
-.faceRadius{
 
-border-radius: 100px;
+.remainingTask {
+    background-image: url("./remainingTask.png");
+    background-size: 100% 100%;
+
+}
+
+.completedTask {
+    background-image: url("./completedTask.png");
+    background-size: 100% 100%;
+
 }

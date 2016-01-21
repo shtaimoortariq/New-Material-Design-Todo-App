@@ -23,42 +23,75 @@
 <div ng-controller="todoCoreController as todoCore">
 
 
-    <md-content flex layout-padding>
-        <div layout="column" layout-fill layout-align="top center">
+    <!--HEADER DIV-->
+    <div layout="column">
 
-            <md-button class="md-icon-button md-primary" aria-label="Settings" ng-click="todoCore.toggleLeft()">
-                <ng-md-icon icon="menu" style="fill: blue" size="30"></ng-md-icon>
+        <div class="mainContent">
+
+            <div layout="row" layout-fill layout-align="start start">
+
+                <md-button class="md-icon-button md-primary" aria-label="Settings" ng-click="todoCore.toggleLeft()">
+                    <ng-md-icon icon="menu" style="fill: white" size="30"></ng-md-icon>
+                </md-button>
+            </div>
+
+            <div layout="row" layout-margin>
+                <div>
+                    <img src="user-icon-set-14.jpg" class="faceRadius"/>
+                </div>
+
+                <div>
+                    <p style="color: #9AC1DA" class="md-title">Taimoor Tariq</p>
+                </div>
+            </div>
+        </div>
+
+        <div layout="row" layout-align="center center">
+
+            <div class="remainingTask" layout-fill layout-padding>
+                <p layout="row" layout-align="center center">asdsadvghjhsad</p>
+            </div>
+
+            <div class="completedTask" layout-fill layout-padding>
+                <p layout="row" layout-align="center center">wyteuwqeywtuqtt</p>
+            </div>
+
+        </div>
+
+        <div layout="row" layout-align="center center">
+            <md-button style="position: relative; top: -120px;" class="md-fab md-primary" ng-click="todoCore.showAlert($event)">
+                <ng-md-icon icon="add" style="fill: black" size="25"></ng-md-icon>
+
             </md-button>
         </div>
-    </md-content>
+    </div>
+
 </div>
 
 <md-sidenav md-component-id="left" class="bgOfLeftPannel">
 
     <div ng-controller="LeftCtrl as leftPannel">
 
+        <div class="backgroundImg" layout-align="start center" layout="row">
 
-        <div class="backgroundImg" layout-align="start end" layout="row">
-            <div layout-margin>
-                <img src="user-icon-set-14.jpg" class="faceRadius"/>
-                <span> Taimoor </span>
-            </div>
+            <img src="user-icon-set-14.jpg" class="faceRadius" layout-padding/>
+
+            <p style="color: #ffffff" class="md-title">Taimoor Tariq</p>
         </div>
 
         <div layout="column" layout-align="start start">
 
-            <md-button ng-click="leftPannel.close()" class="md-primary">
-                Close Sidenav left
+            <md-button ng-click="leftPannel.close()" layout-padding>
+                <ng-md-icon icon="dashboard" style="fill: #A6AFF1" size="30"></ng-md-icon>
+                <span style="color: #A6AFF1" class="md-title">Dashboard</span>
             </md-button>
 
 
-            <md-button ng-click="leftPannel.close()" class="md-primary">
-                Logout
+            <md-button ng-click="leftPannel.close()" layout-padding>
+                <ng-md-icon icon="logout" style="fill: #A6AFF1" size="30"></ng-md-icon>
+                <span style="color: #A6AFF1" class="md-title">Logout</span>
             </md-button>
-
         </div>
-
-
     </div>
 </md-sidenav>
 
