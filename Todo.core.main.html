@@ -16,6 +16,8 @@
     <script src="./node_modules/angular-material-icons/angular-material-icons.js"></script>
 
     <script src="Todo.core.main.js"></script>
+    <script src="dialog.js"></script>
+    <script src="dataService.js"></script>
 
 </head>
 <body ng-app="todoCoreModule">
@@ -49,7 +51,7 @@
         <div layout="row" layout-align="center center">
 
             <div class="remainingTask" layout-fill layout-padding>
-                <p layout="row" layout-align="center center">asdsadvghjhsad</p>
+                <p layout="row" layout-align="center center">{{todoCore.alltodoLength}}</p>
             </div>
 
             <div class="completedTask" layout-fill layout-padding>
@@ -59,11 +61,17 @@
         </div>
 
         <div layout="row" layout-align="center center">
-            <md-button style="position: relative; top: -120px;" class="md-fab md-primary" ng-click="todoCore.showAlert($event)">
+            <md-button style="position: relative; top: -120px;" class="md-fab md-primary" ng-click="todoCore.showAdvanced($event)">
                 <ng-md-icon icon="add" style="fill: black" size="25"></ng-md-icon>
 
             </md-button>
         </div>
+
+        <div ng-repeat="itrateingVariable in todoCore.todos" layout-padding>
+            <p>{{itrateingVariable.todo}}</p>
+
+        </div>
+
     </div>
 
 </div>

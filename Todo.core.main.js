@@ -3,13 +3,13 @@
  */
 
 
-var app = angular.module("todoCoreModule", ['ngMaterial', 'ngMdIcons'])
+var app = angular.module("todoCoreModule", ['ngMaterial', 'ngMdIcons']);
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
         .accentPalette('orange');
 });
-app.controller("todoCoreController", function ($timeout, $mdSidenav, $log, $mdDialog) {
+app.controller("todoCoreController", function ($timeout, $mdSidenav, $log, $mdDialog, todoAppData) {
 
 
     this.toggleLeft = buildDelayedToggler('left');
@@ -38,27 +38,25 @@ app.controller("todoCoreController", function ($timeout, $mdSidenav, $log, $mdDi
         }, 200);
     }
 
-   /* this.addTodo = function () {
-        alert("yes");
-    }
-*/
 
-    this.showAlert = function(ev) {
+    this.showAdvanced = function(ev) {
 
-        // Appending dialog to document.body to cover sidenav in docs app
-        // Modal dialogs should fully cover application
-        // to prevent interaction outside of dialog
-        $mdDialog.show(
-            $mdDialog.alert()
-                .parent(angular.element(document.querySelector('#popupContainer')))
-                .clickOutsideToClose(true)
-                .title('PLEASE ADD TODO')
-                .textContent('You can specify some description text in here.')
-                .ariaLabel('Alert Dialog Demo')
-                .ok('Got it!')
-                .targetEvent(ev)
-        );
+        $mdDialog.show({
+
+            templateUrl: 'dialog.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true
+
+        })
     };
+
+
+    this.todos = todoAppData.alltodo;
+    this.alltodoLength = todoAppData.alltodo.length;
+
+
+
 });
 
 
