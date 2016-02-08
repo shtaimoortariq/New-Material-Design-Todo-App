@@ -8,7 +8,11 @@ angular.module("todoCoreModule")
     $scope.todo = "";
 
     $scope.addTodo = function () {
+
+        //calling service functions
         todoAppData.addTodo($scope.todo);
+        todoAppData.addRemainingTask();
+
         $scope.todo = "";
         $mdDialog.hide();
     }

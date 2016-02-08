@@ -5,19 +5,19 @@
     <title>Title</title>
 
 
-    <link rel="stylesheet" type="text/css" href="./client/Todo.core.main.css"/>
-    <link rel="stylesheet" type="text/css" href="./node_modules/angular-material/angular-material.css"/>
-    <link rel="stylesheet" type="text/css" href="./node_modules/angular-material-icons/angular-material-icons.css"/>
+    <link rel="stylesheet" type="text/css" href="../client/Todo.core.main.css"/>
+    <link rel="stylesheet" type="text/css" href="../node_modules/angular-material/angular-material.css"/>
+    <link rel="stylesheet" type="text/css" href="../node_modules/angular-material-icons/angular-material-icons.css"/>
 
-    <script src="./node_modules/angular/angular.js"></script>
-    <script src="./node_modules/angular-animate/angular-animate.js"></script>
-    <script src="./node_modules/angular-aria/angular-aria.js"></script>
-    <script src="./node_modules/angular-material/angular-material.js"></script>
-    <script src="./node_modules/angular-material-icons/angular-material-icons.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-animate/angular-animate.js"></script>
+    <script src="../node_modules/angular-aria/angular-aria.js"></script>
+    <script src="../node_modules/angular-material/angular-material.js"></script>
+    <script src="../node_modules/angular-material-icons/angular-material-icons.js"></script>
 
-    <script src="./client/Todo.core.main.js"></script>
-    <script src="./client/dialog.js"></script>
-    <script src="./client/dataService.js"></script>
+    <script src="../client/Todo.core.main.js"></script>
+    <script src="../client/dialog.js"></script>
+    <script src="../client/dataService.js"></script>
 
 </head>
 <body ng-app="todoCoreModule">
@@ -25,7 +25,11 @@
 <div ng-controller="todoCoreController as todoCore">
 
 
-    <!--HEADER DIV-->
+<!--
+=====================================
+    MAIN CONTENT DASHBOARD DIV
+=====================================
+-->
     <div layout="column">
 
         <div class="mainContent">
@@ -39,7 +43,7 @@
 
             <div layout="row" layout-margin>
                 <div>
-                    <img src="./images/user-icon-set-14.jpg" class="faceRadius"/>
+                    <img src="../images/user-icon-set-14.jpg" class="faceRadius"/>
                 </div>
 
                 <div>
@@ -51,21 +55,31 @@
         <div layout="row" layout-align="center center">
 
             <div class="remainingTask" layout-fill layout-padding>
-                <p layout="row" layout-align="center center">{{todoCore.todos.length}}</p>
+                <p layout="row" layout-align="center center">
+
+                    {{todoCore.todos.length}}<br/>
+                    remaining task
+                </p>
             </div>
 
             <div class="completedTask" layout-fill layout-padding>
-                <p layout="row" layout-align="center center">{{todoCore.remainingTask}}</p>
+                <p layout="row" layout-align="center center">
+                    {{todoCore.remainingTask.length}} <br/>
+                    completed task
+
+                </p>
             </div>
 
         </div>
 
         <div layout="row" layout-align="center center">
-            <md-button style="position: relative; top: -120px;" class="md-fab md-primary" ng-click="todoCore.showDialog($event)">
+            <md-button style="position: relative; top: -136px;" class="md-fab md-primary" ng-click="todoCore.showDialog($event)">
                 <ng-md-icon icon="add" style="fill: black" size="25"></ng-md-icon>
 
             </md-button>
         </div>
+
+        <span>TODAY</span>
 
         <div ng-repeat="itrateingVariable in todoCore.todos" layout-padding>
             <ul>
@@ -78,15 +92,24 @@
 
     </div>
 
+
 </div>
+
+
+<!--
+========================================
+            SIDE NAV WORK
+========================================
+-->
+
 
 <md-sidenav md-component-id="left" class="bgOfLeftPannel">
 
-    <div ng-controller="LeftCtrl as leftPannel">
+    <div ng-controller="todoCoreController as leftPannel">
 
         <div class="backgroundImg" layout-align="start center" layout="row">
 
-            <img src="./images/user-icon-set-14.jpg" class="faceRadius" layout-padding/>
+            <img src="../images/user-icon-set-14.jpg" class="faceRadius" layout-padding/>
 
             <p style="color: #ffffff" class="md-title">Taimoor Tariq</p>
         </div>

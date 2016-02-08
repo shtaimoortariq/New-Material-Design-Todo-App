@@ -50,6 +50,13 @@ app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $lo
     }
 
 
+    this.close = function () {
+        $mdSidenav('left').close()
+            .then(function () {
+                $log.debug("close LEFT is done");
+            });
+    };
+
     //=====================================
     //              Dialog work
     //=====================================
@@ -67,6 +74,7 @@ app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $lo
     };
 
 
+
     //==========================================
     //     database Service interaction Work
     //==========================================
@@ -76,16 +84,5 @@ app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $lo
 
 
 });
-
-
-app.controller('LeftCtrl', function ($timeout, $mdSidenav, $log) {
-    this.close = function () {
-        $mdSidenav('left').close()
-            .then(function () {
-                $log.debug("close LEFT is done");
-            });
-    };
-});
-
 
 
