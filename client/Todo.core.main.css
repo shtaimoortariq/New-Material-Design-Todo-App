@@ -1,5 +1,5 @@
 .backgroundImg {
-    background-image: url("./assignment2Header.png");
+    background-image: url("../images/assignment2Header.png");
     width: 320px;
     height: 159px;
 }
@@ -13,19 +13,19 @@
 }
 
 .mainContent {
-    background-image: url("./bg.png");
+    background-image: url("../images/bg.png");
     background-size: 100% 100%;
 
 }
 
 .remainingTask {
-    background-image: url("./remainingTask.png");
+    background-image: url("../images/remainingTask.png");
     background-size: 100% 100%;
 
 }
 
 .completedTask {
-    background-image: url("./completedTask.png");
+    background-image: url("../images/completedTask.png");
     background-size: 100% 100%;
 
 }

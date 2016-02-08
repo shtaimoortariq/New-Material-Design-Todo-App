@@ -4,12 +4,13 @@
 
 
 angular.module("todoCoreModule")
-.controller("DialogController" , function ($scope, todoAppData) {
+.controller("DialogController" , function ($scope, todoAppData, $mdDialog) {
     $scope.todo = "";
 
     $scope.addTodo = function () {
         todoAppData.addTodo($scope.todo);
         $scope.todo = "";
+        $mdDialog.hide();
     }
 
 });

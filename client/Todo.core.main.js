@@ -4,13 +4,24 @@
 
 
 var app = angular.module("todoCoreModule", ['ngMaterial', 'ngMdIcons']);
-app.config(function($mdThemingProvider) {
+
+    //==================================
+    //         custom color work
+    //==================================
+
+
+app.config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
-        .accentPalette('orange');
+        .accentPalette('orange')
 });
-app.controller("todoCoreController", function ($timeout, $mdSidenav, $log, $mdDialog, todoAppData) {
 
+app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $log, $mdDialog, todoAppData) {
+
+
+    //=================================
+    //         sidebar work
+    //=================================
 
     this.toggleLeft = buildDelayedToggler('left');
 
@@ -39,10 +50,14 @@ app.controller("todoCoreController", function ($timeout, $mdSidenav, $log, $mdDi
     }
 
 
-    this.showAdvanced = function(ev) {
+    //=====================================
+    //              Dialog work
+    //=====================================
+
+
+    this.showDialog = function (ev) {
 
         $mdDialog.show({
-
             templateUrl: 'dialog.html',
             parent: angular.element(document.body),
             targetEvent: ev,
@@ -52,9 +67,12 @@ app.controller("todoCoreController", function ($timeout, $mdSidenav, $log, $mdDi
     };
 
 
-    this.todos = todoAppData.alltodo;
-    this.alltodoLength = todoAppData.alltodo.length;
+    //==========================================
+    //     database Service interaction Work
+    //==========================================
 
+    this.todos         = todoAppData.getTodoList();
+    this.remainingTask = todoAppData.getRemainingTask();
 
 
 });

@@ -5,7 +5,7 @@
     <title>Title</title>
 
 
-    <link rel="stylesheet" type="text/css" href="./Todo.core.main.css"/>
+    <link rel="stylesheet" type="text/css" href="./client/Todo.core.main.css"/>
     <link rel="stylesheet" type="text/css" href="./node_modules/angular-material/angular-material.css"/>
     <link rel="stylesheet" type="text/css" href="./node_modules/angular-material-icons/angular-material-icons.css"/>
 
@@ -15,9 +15,9 @@
     <script src="./node_modules/angular-material/angular-material.js"></script>
     <script src="./node_modules/angular-material-icons/angular-material-icons.js"></script>
 
-    <script src="Todo.core.main.js"></script>
-    <script src="dialog.js"></script>
-    <script src="dataService.js"></script>
+    <script src="./client/Todo.core.main.js"></script>
+    <script src="./client/dialog.js"></script>
+    <script src="./client/dataService.js"></script>
 
 </head>
 <body ng-app="todoCoreModule">
@@ -39,7 +39,7 @@
 
             <div layout="row" layout-margin>
                 <div>
-                    <img src="user-icon-set-14.jpg" class="faceRadius"/>
+                    <img src="./images/user-icon-set-14.jpg" class="faceRadius"/>
                 </div>
 
                 <div>
@@ -51,24 +51,28 @@
         <div layout="row" layout-align="center center">
 
             <div class="remainingTask" layout-fill layout-padding>
-                <p layout="row" layout-align="center center">{{todoCore.alltodoLength}}</p>
+                <p layout="row" layout-align="center center">{{todoCore.todos.length}}</p>
             </div>
 
             <div class="completedTask" layout-fill layout-padding>
-                <p layout="row" layout-align="center center">wyteuwqeywtuqtt</p>
+                <p layout="row" layout-align="center center">{{todoCore.remainingTask}}</p>
             </div>
 
         </div>
 
         <div layout="row" layout-align="center center">
-            <md-button style="position: relative; top: -120px;" class="md-fab md-primary" ng-click="todoCore.showAdvanced($event)">
+            <md-button style="position: relative; top: -120px;" class="md-fab md-primary" ng-click="todoCore.showDialog($event)">
                 <ng-md-icon icon="add" style="fill: black" size="25"></ng-md-icon>
 
             </md-button>
         </div>
 
         <div ng-repeat="itrateingVariable in todoCore.todos" layout-padding>
-            <p>{{itrateingVariable.todo}}</p>
+            <ul>
+                <li>
+                {{itrateingVariable.todo}}
+                </li>
+            </ul>
 
         </div>
 
@@ -82,7 +86,7 @@
 
         <div class="backgroundImg" layout-align="start center" layout="row">
 
-            <img src="user-icon-set-14.jpg" class="faceRadius" layout-padding/>
+            <img src="./images/user-icon-set-14.jpg" class="faceRadius" layout-padding/>
 
             <p style="color: #ffffff" class="md-title">Taimoor Tariq</p>
         </div>
