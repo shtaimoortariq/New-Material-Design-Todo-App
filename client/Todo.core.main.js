@@ -3,7 +3,7 @@
  */
 
 
-var app = angular.module("todoCoreModule", ['ngMaterial', 'ngMdIcons']);
+var app = angular.module("todoCoreModule", ['ngMaterial', 'ngMdIcons', 'firebase']);
 
     //==================================
     //         custom color work
@@ -14,7 +14,7 @@ app.config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
         .accentPalette('orange')
-        
+
 });
 
 app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $log, $mdDialog, todoAppData) {
@@ -84,9 +84,9 @@ app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $lo
     this.completedTask = todoAppData.getCompletedTask();
 
 
-    //================================================
+    //====================================================
     //     dropdown functions with service interaction
-    //================================================
+    //====================================================
 
     this.todoIsCompleted = function () {
         todoAppData.addCompletedTask();

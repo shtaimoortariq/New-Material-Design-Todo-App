@@ -1,0 +1,21 @@
+{
+  "name": "todo",
+  "description": "",
+  "main": "Todo.core.main.js",
+  "authors": [
+    "taimoor123 <taimoor_t@yahoo.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Taimoor123/New-Material-Design-Todo-App",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "~2.4.0"
+  }
+}
