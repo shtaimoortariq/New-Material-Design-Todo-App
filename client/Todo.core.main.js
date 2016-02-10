@@ -14,6 +14,7 @@ app.config(function ($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
         .accentPalette('orange')
+        
 });
 
 app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $log, $mdDialog, todoAppData) {
@@ -80,7 +81,20 @@ app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $lo
     //==========================================
 
     this.todos         = todoAppData.getTodoList();
-    this.remainingTask = todoAppData.getRemainingTask();
+    this.completedTask = todoAppData.getCompletedTask();
+
+
+    //================================================
+    //     dropdown functions with service interaction
+    //================================================
+
+    this.todoIsCompleted = function () {
+        todoAppData.addCompletedTask();
+    };
+
+    this.todoIsDeleted = function (index) {
+        todoAppData.setDeleteTask(index);
+    };
 
 
 });

@@ -11,7 +11,7 @@ angular.module("todoCoreModule")
 
         //calling service functions
         todoAppData.addTodo($scope.todo);
-        todoAppData.addRemainingTask();
+       // todoAppData.addRemainingTask();
 
         $scope.todo = "";
         $mdDialog.hide();

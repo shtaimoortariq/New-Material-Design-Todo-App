@@ -64,7 +64,7 @@
 
             <div class="completedTask" layout-fill layout-padding>
                 <p layout="row" layout-align="center center">
-                    {{todoCore.remainingTask.length}} <br/>
+                    {{todoCore.completedTask.length}} <br/>
                     completed task
 
                 </p>
@@ -85,12 +85,27 @@
             <ul>
                 <li>
                 {{itrateingVariable.todo}}
+                    <md-menu>
+                        <!-- Trigger element is a md-button with an icon -->
+                        <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+                            <ng-md-icon icon="expand_more" style="fill: black" size="25"></ng-md-icon>
+                        </md-button>
+                        <md-menu-content>
+                            <md-menu-item>
+                                <ng-md-icon icon="check" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsCompleted()"></ng-md-icon>
+                                <ng-md-icon icon="delete" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsDeleted($index)"></ng-md-icon>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+
                 </li>
             </ul>
 
         </div>
 
     </div>
+
+
 
 
 </div>

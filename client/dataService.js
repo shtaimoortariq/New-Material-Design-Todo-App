@@ -8,7 +8,7 @@ angular.module("todoCoreModule")
 
         var _self         = this;
         var alltodo       = [];
-        var remainingTask = [];
+        var completedTask = [];
         var i             = 0;
 
         this.addTodo = function (todo) {
@@ -18,14 +18,12 @@ angular.module("todoCoreModule")
                 remaining: true
 
             });
-            i++;
         };
 
-        this.addRemainingTask = function() {
-            remainingTask.push({
-                remainingTodo : i
+        this.addCompletedTask = function() {
+            completedTask.push({
+                completedTask : i
             });
-            console.log(remainingTask);
 
         };
 
@@ -33,7 +31,14 @@ angular.module("todoCoreModule")
             return alltodo;
         };
 
-        this.getRemainingTask = function () {
-           return remainingTask;
-        }
+        this.getCompletedTask = function () {
+           return completedTask;
+        };
+
+        this.setDeleteTask = function (index) {
+            alltodo.splice(index, 1);
+
+        };
+
+
     });
