@@ -4,8 +4,8 @@
 
 
 angular.module("todoCoreModule")
-    .service("todoAppData", function () {
-
+    .service("todoAppData", function ($firebaseArray) {
+        console.log("In service");
 
 
         var _self         = this;
@@ -14,17 +14,25 @@ angular.module("todoCoreModule")
         var i             = 0;
 
         var ref = new Firebase("https://addtodo.firebaseio.com/");
+
+
+        //      dataBase work
+
+            alltodo = $firebaseArray(ref);
+            alltodo.$loaded()
+                .then(function (data) {
+                    console.log("data:" +data)
+                })
+                .catch(function (error) {
+                    console.log("Error" +error);
+                });
+
         //===================
         //      setters
         //===================
 
         this.addTodo = function (todo) {
-            /*alltodo.push({
-                todo: todo,
-                complete: false,
-                remaining: true
 
-            });*/
             ref.push({
                 todo: todo,
                 complete: false,
