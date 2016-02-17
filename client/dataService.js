@@ -5,30 +5,41 @@
 
 angular.module("todoCoreModule")
     .service("todoAppData", function ($firebaseArray) {
-        console.log("In service");
 
-
-        var _self         = this;
-        var alltodo       = [];
+        var _self = this;
+        var alltodo = [];
         var completedTask = [];
-        var i             = 0;
+        var i = 0;
 
-        var ref = new Firebase("https://addtodo.firebaseio.com/");
+        var ref = new Firebase("https://addtodo.firebaseio.com/userName/todo");
+        var completedTodoRef = new Firebase("https://addtodo.firebaseio.com/userName/completedTodos");
 
 
-        //      dataBase work
+        alltodo = $firebaseArray(ref);
+        completedTask = $firebaseArray(completedTodoRef);
 
-            alltodo = $firebaseArray(ref);
-            alltodo.$loaded()
-                .then(function (data) {
-                    console.log("data:" +data)
-                })
-                .catch(function (error) {
-                    console.log("Error" +error);
-                });
+        //=================================
+        //      onservice load functions
+        //=================================
+
+        alltodo.$loaded()
+            .then(function (data) {
+                console.log("todoData:" + data);
+            })
+            .catch(function (error) {
+                console.log("toDoError" + error);
+            });
+
+        completedTask.$loaded()
+            .then(function (data) {
+                console.log("completedTaskData:" + data);
+            })
+            .catch(function (error) {
+                console.log("completedError" + error);
+            });
 
         //===================
-        //      setters
+        //      addTodo
         //===================
 
         this.addTodo = function (todo) {
@@ -42,28 +53,47 @@ angular.module("todoCoreModule")
 
         };
 
-        this.addCompletedTask = function() {
-            completedTask.push({
-                completedTask : i
+        this.addCompletedTask = function (index) {
+            //update todo if completed
+            ref.child(alltodo[index].$id).update({complete: true, remaining: false});
+
+            //if task is completed then shift the node for this task  (from todo to completed)
+            completedTodoRef.child(alltodo[index].$id).set({
+                todo: alltodo[index].todo,
+                complete: alltodo[index].complete,
+                remaining: alltodo[index].remaining
             });
+
+            //remove todo from ref
+            ref.child(alltodo[index].$id).remove();
+
         };
 
-        this.setDeleteTask = function (index) {
-            alltodo.splice(index, 1);
+        //==============================
+        //      delete functionality
+        //==============================
+
+        this.setDeleteTaskFromRefNode = function (index) {
+            ref.child(alltodo[index].$id).remove();
+
+        };
+
+        this.setDeleteTaskFromCompletedTaskNode = function (index) {
+            completedTodoRef.child(completedTask[index].$id).remove();
+
         };
 
         //===================
         //      getters
         //===================
 
-        this.getTodoList      = function() {
+        this.getTodoList = function () {
             return alltodo;
         };
 
         this.getCompletedTask = function () {
-           return completedTask;
+            return completedTask;
         };
-
 
 
     });

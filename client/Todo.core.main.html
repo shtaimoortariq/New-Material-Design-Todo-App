@@ -84,7 +84,7 @@
 
         <span>TODAY</span>
 
-        <div ng-repeat="itrateingVariable in todoCore.todos" layout-padding>
+        <div ng-repeat="itrateingVariable in todoCore.todos">
             <ul>
                 <li>
                 {{itrateingVariable.todo}}
@@ -95,8 +95,31 @@
                         </md-button>
                         <md-menu-content>
                             <md-menu-item>
-                                <ng-md-icon icon="check" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsCompleted()"></ng-md-icon>
-                                <ng-md-icon icon="delete" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsDeleted($index)"></ng-md-icon>
+                                <ng-md-icon icon="check" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsCompleted($index)"></ng-md-icon>
+                                <ng-md-icon icon="delete" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsDeletedFromRefNode($index)"></ng-md-icon>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div ng-repeat="itrateingVariable in todoCore.completedTask">
+            <ul>
+                <li>
+                    {{itrateingVariable.todo}}
+                    <md-menu>
+                        <!-- Trigger element is a md-button with an icon -->
+                        <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="Open sample menu">
+                            <ng-md-icon icon="expand_more" style="fill: black" size="25"></ng-md-icon>
+                        </md-button>
+                        <md-menu-content>
+                            <md-menu-item>
+                                <ng-md-icon icon="check" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsCompleted($index)"></ng-md-icon>
+                                <ng-md-icon icon="delete" style="fill: #A6AFF1" size="30" ng-click="todoCore.todoIsDeletedFromCompletedTaskNode($index)"></ng-md-icon>
                             </md-menu-item>
                         </md-menu-content>
                     </md-menu>

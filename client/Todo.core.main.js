@@ -5,9 +5,9 @@
 
 var app = angular.module("todoCoreModule", ['ngMaterial', 'ngMdIcons', 'firebase']);
 
-    //==================================
-    //         custom color work
-    //==================================
+//==================================
+//         custom color work
+//==================================
 
 
 app.config(function ($mdThemingProvider) {
@@ -75,27 +75,30 @@ app.controller("todoCoreController", function ($scope, $timeout, $mdSidenav, $lo
     };
 
 
-
-    //==========================================
-    //     database Service interaction Work
-    //==========================================
+    //=================================================
+    //     database Service + client interaction Work
+    //=================================================
 
     this.todos         = todoAppData.getTodoList();
     this.completedTask = todoAppData.getCompletedTask();
+
 
 
     //====================================================
     //     dropdown functions with service interaction
     //====================================================
 
-    this.todoIsCompleted = function () {
-        todoAppData.addCompletedTask();
+    this.todoIsCompleted = function ($index) {
+        todoAppData.addCompletedTask($index);
     };
 
-    this.todoIsDeleted = function (index) {
-        todoAppData.setDeleteTask(index);
+    this.todoIsDeletedFromRefNode  = function (index) {
+        todoAppData.setDeleteTaskFromRefNode(index);
     };
 
+    this.todoIsDeletedFromCompletedTaskNode  = function (index) {
+        todoAppData.setDeleteTaskFromCompletedTaskNode(index);
+    };
 
 });
 

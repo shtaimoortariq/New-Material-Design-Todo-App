@@ -4,17 +4,16 @@
 
 
 angular.module("todoCoreModule")
-.controller("DialogController" , function ($scope, todoAppData, $mdDialog) {
-    $scope.todo = "";
-
-    $scope.addTodo = function () {
-
-        //calling service functions
-        todoAppData.addTodo($scope.todo);
-
-
+    .controller("DialogController", function ($scope, todoAppData, $mdDialog) {
         $scope.todo = "";
-        $mdDialog.hide();
-    }
 
-});
+        $scope.addTodo = function () {
+
+            //calling service functions
+            todoAppData.addTodo($scope.todo);
+
+            $scope.todo = "";
+            $mdDialog.hide();
+        }
+
+    });
